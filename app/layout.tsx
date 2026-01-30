@@ -11,7 +11,6 @@ const geist = Geist({
 export const metadata: Metadata = {
   title: "TRAZO - Tito + Rothenberger Arquitectura",
   description: "Estudio de arquitectura y diseño en Mar del Plata",
-  generator: "v0.app",
 }
 
 export default function RootLayout({
