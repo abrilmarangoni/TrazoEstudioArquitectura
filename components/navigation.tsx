@@ -55,104 +55,131 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
   const mobileLinkColor = isHeroSection ? "text-white" : "text-charcoal"
 
   return (
-    <nav
-      className={`fixed w-full ${navBgColor} ${isHeroSection ? "" : "backdrop-blur-sm"} z-50 border-b ${borderColor} transition-all duration-300`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Language Toggle */}
-          <div className="flex items-center gap-2">
+    <>
+      {/* Navigation Bar */}
+      <nav
+        className={`fixed w-full ${navBgColor} ${isHeroSection ? "" : "backdrop-blur-sm"} z-50 border-b ${borderColor} transition-all duration-300`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Language Toggle */}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => onLanguageChange("en")}
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  isHeroSection 
+                    ? (language === "en" ? "text-white" : "text-white/60 hover:text-white")
+                    : (language === "en" ? "text-charcoal" : "text-charcoal/60 hover:text-charcoal")
+                }`}
+              >
+                EN
+              </button>
+              <span className="text-[#b4a66d]">|</span>
+              <button
+                onClick={() => onLanguageChange("es")}
+                className={`text-sm font-medium transition-colors duration-300 ${
+                  isHeroSection 
+                    ? (language === "es" ? "text-white" : "text-white/60 hover:text-white")
+                    : (language === "es" ? "text-charcoal" : "text-charcoal/60 hover:text-charcoal")
+                }`}
+              >
+                ES
+              </button>
+            </div>
+
+            {/* Center Logo */}
+            <div className="absolute left-1/2 transform -translate-x-1/2">
+              <img 
+                src="/images/logo-trazo.png" 
+                alt="Trazo - Tito + Rothenberger Arquitectura" 
+                className={`h-10 w-auto transition-opacity duration-300 ${isHeroSection ? "brightness-0 invert" : ""}`}
+              />
+            </div>
+
+            {/* Menu Button */}
             <button
-              onClick={() => onLanguageChange("en")}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                language === "en" ? "text-gold" : `${logoColor} opacity-60 hover:opacity-100`
-              }`}
+              onClick={() => setIsOpen(!isOpen)}
+              className={`${menuButtonColor} transition-colors duration-300 z-[60]`}
             >
-              EN
-            </button>
-            <span className={`${logoColor} opacity-40`}>|</span>
-            <button
-              onClick={() => onLanguageChange("es")}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                language === "es" ? "text-gold" : `${logoColor} opacity-60 hover:opacity-100`
-              }`}
-            >
-              ES
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
-          {/* Center Logo */}
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <img 
-              src="/images/logo-trazo.png" 
-              alt="Trazo - Tito + Rothenberger Arquitectura" 
-              className={`h-10 w-auto transition-opacity duration-300 ${isHeroSection ? "brightness-0 invert" : ""}`}
-            />
-          </div>
-
-          {/* Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className={`${menuButtonColor} transition-colors duration-300`}
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
         </div>
+      </nav>
 
-        {/* Dropdown Menu */}
-        {isOpen && (
-          <div
-            className={`absolute top-16 right-4 w-48 py-4 px-4 rounded-lg shadow-lg border ${borderColor} ${mobileMenuBg} transition-all duration-300`}
-          >
+      {/* Overlay when menu is open */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-[998]"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Panel Menu - fuera del nav para que funcione en toda la página */}
+      <div
+        className={`fixed top-0 right-0 h-screen w-[30%] min-w-[320px] bg-[#212f35]/95 backdrop-blur-md z-[999] transform transition-transform duration-500 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        {/* Close button */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-8 right-8 text-white/70 hover:text-[#b4a66d] transition-colors"
+        >
+          <X size={24} strokeWidth={1.5} />
+        </button>
+
+        {/* Menu content */}
+        <div className="flex flex-col justify-between h-full py-24 px-16">
+          {/* Navigation links */}
+          <nav className="space-y-8 mt-8">
             <a
-              href="#biography"
+              href="#hero"
               onClick={() => setIsOpen(false)}
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              className="block text-white/90 text-3xl font-extralight tracking-wide hover:text-[#b4a66d] transition-all duration-300 font-[family-name:var(--font-geist-sans)]"
             >
-              {t.biography}
-            </a>
-            <a
-              href="#concerts"
-              onClick={() => setIsOpen(false)}
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
-            >
-              {t.concerts}
+              Inicio
             </a>
             <a
               href="#gallery"
               onClick={() => setIsOpen(false)}
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              className="block text-white/90 text-3xl font-extralight tracking-wide hover:text-[#b4a66d] transition-all duration-300 font-[family-name:var(--font-geist-sans)]"
             >
-              {t.gallery}
+              Proyectos
+            </a>
+            <a
+              href="#services"
+              onClick={() => setIsOpen(false)}
+              className="block text-white/90 text-3xl font-extralight tracking-wide hover:text-[#b4a66d] transition-all duration-300 font-[family-name:var(--font-geist-sans)]"
+            >
+              Servicios
             </a>
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+              className="block text-white/90 text-3xl font-extralight tracking-wide hover:text-[#b4a66d] transition-all duration-300 font-[family-name:var(--font-geist-sans)]"
             >
-              {t.contact}
+              Contacto
             </a>
+          </nav>
+
+          {/* Bottom section */}
+          <div className="space-y-6">
+            {/* Divider */}
+            <div className="w-12 h-[1px] bg-[#b4a66d]" />
             
-            {/* Language Selector */}
-            <div className={`flex gap-3 pt-3 mt-3 border-t ${borderColor}`}>
-              {(["en", "es"] as const).map((lang) => (
-                <button
-                  key={lang}
-                  onClick={() => {
-                    onLanguageChange(lang)
-                    setIsOpen(false)
-                  }}
-                  className={`text-xs font-medium transition-colors duration-300 ${
-                    language === lang ? "text-gold" : `${mobileLinkColor} opacity-60 hover:opacity-100`
-                  }`}
-                >
-                  {lang.toUpperCase()}
-                </button>
-              ))}
+            {/* Contact info */}
+            <div className="space-y-3">
+              <a href="mailto:info@trazoarquitectura.com" className="block text-white/50 text-sm hover:text-[#b4a66d] transition-colors font-[family-name:var(--font-geist-sans)]">
+                info@trazoarquitectura.com
+              </a>
+              <a href="https://instagram.com/trazoarquitectura" target="_blank" rel="noopener noreferrer" className="block text-white/50 text-sm hover:text-[#b4a66d] transition-colors font-[family-name:var(--font-geist-sans)]">
+                @trazoarquitectura
+              </a>
             </div>
           </div>
-        )}
+        </div>
       </div>
-    </nav>
+    </>
   )
 }
