@@ -56,11 +56,20 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
 
   return (
     <>
-      {/* Navigation Bar */}
+      {/* Misma lógica que section-container: 1rem → 1.5rem (640px) → 32px (1024px+) */}
+      <style dangerouslySetInnerHTML={{ __html: `
+        .nav-container { width: 100%; padding-left: 1rem; padding-right: 1rem; }
+        @media (min-width: 640px) {
+          .nav-container { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+        @media (min-width: 1024px) {
+          .nav-container { padding-left: 32px; padding-right: 32px; }
+        }
+      `}} />
       <nav
         className={`fixed w-full ${navBgColor} ${isHeroSection ? "" : "backdrop-blur-sm"} z-50 border-b ${borderColor} transition-all duration-300`}
       >
-        <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="nav-container">
           <div className="flex justify-between items-center h-16">
             {/* Language Toggle */}
             <div className="flex items-center gap-2">
