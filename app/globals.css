@@ -121,6 +121,27 @@
   @apply h-0.5 w-12 bg-accent;
 }
 
+/* Contenedor de sección - 50px padding en desktop */
+.section-container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
 /* Removed invalid import and defined animations directly */
 @keyframes fadeInUp {
   from {

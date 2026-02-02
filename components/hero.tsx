@@ -22,13 +22,13 @@ export default function Hero({ language }: HeroProps) {
       </section>
 
       {/* About Section - Texto sobre fondo blanco */}
-      <section className="bg-white py-16 md:py-24 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 flex flex-col items-center">
+      <section className="bg-white py-20 md:py-28 lg:py-36">
+        <div className="section-container flex flex-col items-center">
           <div className="max-w-5xl w-full">
             <p className="text-[#212f35] text-xl md:text-2xl lg:text-[36px] font-extralight leading-relaxed tracking-tight text-left font-[family-name:var(--font-geist-sans)]">
               TRAZO Arquitectura es un estudio de arquitectura y diseño con sede en Mar del Plata, formado por un grupo multidisciplinar de profesionales, que realiza proyectos residenciales, culturales, corporativos y públicos a nivel nacional.
             </p>
-            <div className="w-40 h-[3px] bg-[#b4a66d] mt-10 self-start" />
+            <div className="w-40 h-[3px] bg-[#b4a66d] mt-12 self-start" />
           </div>
         </div>
       </section>

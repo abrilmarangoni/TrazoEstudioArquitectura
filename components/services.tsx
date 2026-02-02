@@ -53,10 +53,10 @@ const services = [
 
 export default function Services({ language }: ServicesProps) {
   return (
-    <section id="services" className="py-24 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+    <section id="services" className="py-28 md:py-36 bg-white">
+      <div className="section-container">
         {/* Título */}
-        <h2 className="text-[#212f35] text-6xl md:text-8xl lg:text-[120px] font-normal tracking-tight text-center font-[family-name:var(--font-geist-sans)] mb-8">
+        <h2 className="text-[#212f35] text-6xl md:text-8xl lg:text-[120px] font-normal tracking-tight text-center font-[family-name:var(--font-geist-sans)] mb-10">
           SERVICIOS
         </h2>
         
@@ -74,14 +74,14 @@ export default function Services({ language }: ServicesProps) {
               className="group block"
             >
               {/* Imagen */}
-              <div className="relative aspect-[4/5] w-full overflow-hidden mb-4">
+              <div className="relative aspect-[4/5] w-full overflow-hidden mb-6">
                 <div className="w-full h-full bg-gray-200 flex items-center justify-center">
                   <span className="text-gray-400 text-sm">Imagen</span>
                 </div>
               </div>
               
               {/* Título */}
-              <h3 className="text-[#212f35] text-xl md:text-2xl font-normal mb-3 group-hover:text-[#b4a66d] transition-colors duration-300 font-[family-name:var(--font-geist-sans)]">
+              <h3 className="text-[#212f35] text-xl md:text-2xl font-normal mb-4 group-hover:text-[#b4a66d] transition-colors duration-300 font-[family-name:var(--font-geist-sans)]">
                 {service.title}
               </h3>
               

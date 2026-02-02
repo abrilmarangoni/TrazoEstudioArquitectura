@@ -80,19 +80,19 @@ export default function Gallery({ language }: GalleryProps) {
   ]
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+    <section id="gallery" className="py-28 md:py-36 bg-white">
+      <div className="section-container">
         {/* Título PROYECTOS - centrado */}
-        <h2 className="text-[#212f35] text-6xl md:text-8xl lg:text-[120px] font-normal tracking-tight mb-6 text-center font-[family-name:var(--font-geist-sans)]">
+        <h2 className="text-[#212f35] text-6xl md:text-8xl lg:text-[120px] font-normal tracking-tight mb-10 text-center font-[family-name:var(--font-geist-sans)]">
           PROYECTOS
         </h2>
         
         {/* Categorias */}
-        <div className="mb-8">
-          <p className="text-[#666] text-base md:text-lg font-semibold tracking-tight mb-3">
+        <div className="mb-10">
+          <p className="text-[#666] text-base md:text-lg font-semibold tracking-tight mb-4">
             Categorias
           </p>
-          <div className="flex flex-wrap items-baseline gap-3 md:gap-4">
+          <div className="flex flex-wrap items-baseline gap-4">
             {categories.map((cat) => (
               <button
                 key={cat.key}
@@ -117,7 +117,7 @@ export default function Gallery({ language }: GalleryProps) {
         </div>
 
         {/* Projects Grid - 3x3 (solo 6 proyectos) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredProjects.slice(0, 6).map((project) => (
             <Link
               key={project.id}

@@ -37,15 +37,15 @@ export default function Contact({ language }: ContactProps) {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20">
+    <section id="contact" className="py-28 md:py-36 bg-white">
+      <div className="section-container">
         {/* Título */}
-        <h2 className="text-[#212f35] text-6xl md:text-8xl lg:text-[120px] font-normal tracking-tight text-center font-[family-name:var(--font-geist-sans)] mb-16">
+        <h2 className="text-[#212f35] text-6xl md:text-8xl lg:text-[120px] font-normal tracking-tight text-center font-[family-name:var(--font-geist-sans)] mb-12">
           CONTACTANOS
         </h2>
 
         {/* 50/50 Layout - imagen misma altura que formulario */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Imagen izquierda - altura = formulario, recorte 70px arriba */}
           <div
             className="relative w-full overflow-hidden"
@@ -65,16 +65,16 @@ export default function Contact({ language }: ContactProps) {
 
           {/* Formulario derecha */}
           <div ref={formColRef} className="flex flex-col justify-center">
-            <h3 className="text-[#212f35] text-2xl md:text-3xl font-light mb-3 font-[family-name:var(--font-geist-sans)]">
+            <h3 className="text-[#212f35] text-2xl md:text-3xl font-light mb-4 font-[family-name:var(--font-geist-sans)]">
               ¿Tenés un proyecto en mente?
             </h3>
             <p className="text-[#666] text-base mb-8 font-[family-name:var(--font-geist-sans)]">
               Completá el formulario y nos pondremos en contacto a la brevedad.
             </p>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Nombre y Email en fila */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <input
                     type="text"
@@ -102,7 +102,7 @@ export default function Contact({ language }: ContactProps) {
               </div>
 
               {/* Teléfono y Tipo en fila */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <input
                     type="tel"
@@ -150,7 +150,7 @@ export default function Contact({ language }: ContactProps) {
               {/* Submit */}
               <button
                 type="submit"
-                className="mt-4 bg-[#212f35] text-white py-4 px-10 font-light tracking-wider hover:bg-[#b4a66d] transition-colors duration-300 font-[family-name:var(--font-geist-sans)]"
+                className="mt-8 bg-[#212f35] text-white py-4 px-10 font-light tracking-wider hover:bg-[#b4a66d] transition-colors duration-300 font-[family-name:var(--font-geist-sans)]"
               >
                 ENVIAR
               </button>
